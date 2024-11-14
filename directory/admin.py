@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from directory.models import Material, Category
+
+admin.site.register(Category)
+admin.site.register(Material)
