@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'directory',
+    'users',
 ]
 
 REST_FRAMEWORK = {
@@ -139,7 +140,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+SUPERUSER_EMAIL = os.getenv('SUPERUSER_EMAIL')
+SUPERUSER_PASSWORD = os.getenv('SUPERUSER_PASSWORD')
+SUPERUSER_FIRST_NAME = os.getenv('SUPERUSER_FIRST_NAME')
+SUPERUSER_LAST_NAME = os.getenv('SUPERUSER_LAST_NAME')
